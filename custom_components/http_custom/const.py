@@ -18,3 +18,5 @@ ISSUE_URL = "https://github.com/wxt9861/esxi_stats/issues"
 CONF_NAME = "name"
 CONF_HOST_NAME = "hostname"
 CONF_HOST_STATA = "hoststatus"
+DEFAULT_HOST_PORT = 80
+DEFAULT_HOST_STATE = "close"

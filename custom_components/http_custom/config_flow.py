@@ -7,12 +7,9 @@ from homeassistant import config_entries
 from homeassistant.core import callback
 
 from .const import (
-
     DOMAIN,
-    DEFAULT_PORT,
-    DEFAULT_HOST_STATE,
-    VMHOST_STATES,
-    CONF_HOST_NAME, CONF_HOST_STATA,
+    CONF_HOST_NAME,
+    CONF_HOST_STATA, DEFAULT_HOST_STATE, DEFAULT_HOST_PORT,
 )
 from .http import http_connect
 
@@ -71,7 +68,7 @@ class HTTPSwitchLowHandler(config_entries.ConfigFlow):
         """Show the configuration form to edit location data."""
         # Defaults
         host = ""
-        port = DEFAULT_PORT
+        port = DEFAULT_HOST_PORT
 
         if user_input is not None:
             if "host" in user_input:
@@ -139,7 +136,7 @@ class HttpSwitchOptionsFlow(config_entries.OptionsFlow):
                         default=self.config_entry.options.get(
                             CONF_HOST_STATA, DEFAULT_HOST_STATE
                         ),
-                    ): vol.In(VMHOST_STATES)
+                    ): vol.In(CONF_HOST_STATA)
                 }
             ),
         )
