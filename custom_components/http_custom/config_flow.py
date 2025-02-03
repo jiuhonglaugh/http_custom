@@ -9,7 +9,7 @@ from homeassistant.core import callback
 from .const import (
     DOMAIN,
     CONF_HOST_NAME,
-    CONF_HOST_STATA, DEFAULT_HOST_STATE, DEFAULT_HOST_PORT,
+    CONF_HOST_STATA, DEFAULT_HOST_STATE, DEFAULT_HOST_PORT, CONF_HOST_PORT,
 )
 from .http import http_connect
 
@@ -132,11 +132,17 @@ class HttpSwitchOptionsFlow(config_entries.OptionsFlow):
             data_schema=vol.Schema(
                 {
                     vol.Optional(
-                        CONF_HOST_STATA,
+                        CONF_HOST_NAME,
                         default=self.config_entry.options.get(
-                            CONF_HOST_STATA, DEFAULT_HOST_STATE
+                            CONF_HOST_NAME
                         ),
-                    ): vol.In(CONF_HOST_STATA)
+                    ): vol.In(CONF_HOST_NAME),
+                    vol.Optional(
+                        CONF_HOST_PORT,
+                        default=self.config_entry.options.get(
+                            CONF_HOST_PORT, DEFAULT_HOST_PORT
+                        ),
+                    ): vol.In(CONF_HOST_PORT)
                 }
             ),
         )
