@@ -1,0 +1,11 @@
+{
+  "codeowners": ["@jiuhong"],
+  "config_flow": false,
+  "dependencies": [],
+  "documentation": "https://github.com/boralyl/github-custom-component-tutorial",
+  "domain": "http_custom",
+  "iot_class": "calculated",
+  "name": "Http Custom",
+  "requirements": [],
+  "version": "1.0.0"
+}
